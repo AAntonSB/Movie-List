@@ -8,7 +8,6 @@ export default {
   },
   template: `
     <div id="app">
-      <h1>Add Movie</h1>
       <AddMovie @newMovie="onNewMovie"></AddMovie>
       <br>
       <MovieList :movies="movies" />
