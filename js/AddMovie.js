@@ -46,6 +46,9 @@ export default {
         this.genre,
         this.desc 
         );
+        if (movie.title === ""){
+          return
+        }
 
       console.log(movie);
 
