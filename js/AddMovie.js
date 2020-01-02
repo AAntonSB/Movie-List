@@ -12,7 +12,9 @@ export default {
         <input id="rating" type="range" v-model="rating" min="1" max="5">
         5
         <span class="current-rating">{{rating}}</span>
-        
+
+        <input type="file" @change="onFileChange">
+        <br>
         <label for="genre">Genre</label>
         <select id="genre" v-model="genre">
           <option value="Drama">Drama</option>
@@ -20,11 +22,14 @@ export default {
           <option value="Comedy">Comedy</option>
         </select>
         <br>
+        <br>
         <label for="description">Description</label>
         <textarea id="description" v-model="desc"></textarea>
+        <br>
         
         <button @click.prevent="clearForm">Clear</button>
         <button @click.prevent="addMovie">Add</button>
+
       </form>
     </div>
     `,
@@ -33,10 +38,26 @@ export default {
       title: '',
       rating: 3,
       genre: 'Drama',
-      desc: ''
+      desc: '',
+      image: null
     }
   },
   methods: {
+    onFileChange(e) {
+      var files = e.target.files || e.dataTransfer.files;
+      if (!files.length)
+        return;
+      this.createImage(files[0]);
+    },
+    createImage(file) {
+      var image = new Image();
+      var reader = new FileReader();
+      var vm = this;
+      console.log(image)
+      reader.onload = (e) => {
+        vm.image = e.target.result;
+      };
+    },
     addMovie(evt) {
       evt.preventDefault()
 
@@ -44,10 +65,11 @@ export default {
         this.title, 
         this.rating,
         this.genre,
-        this.desc 
+        this.desc, 
+        this.image
         );
 
-      console.log(movie);
+        console.log(this.image)
 
       this.$emit('newMovie', movie)
 

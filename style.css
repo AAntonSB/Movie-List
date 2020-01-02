@@ -26,6 +26,13 @@ form, .movie-card {
   float: right;
 }
 
+.card-image {
+  width: 30%;
+  margin: auto;
+  display: block;
+  margin-bottom: 10px;
+}
+
 .card-genre {
   float: right;
   margin: 0;
