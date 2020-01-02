@@ -59,5 +59,11 @@ export default {
       this.genre = 'Drama'
       this.desc = ''
     }
+  },
+
+  watch: {
+    movie(val){
+      Array.push(val)
+    }
   }
 }
