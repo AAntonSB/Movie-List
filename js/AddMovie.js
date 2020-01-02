@@ -4,6 +4,7 @@ export default {
   template: `
     <div>
       <form>
+        <h1 class="Title">Add Movie</h1>
         <label for="title">Title</label>
         <input id="title" v-model="title" type="text">
         <br>

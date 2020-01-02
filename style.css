@@ -6,11 +6,19 @@
   margin-right: auto;
 }
 
+body{
+  background-image: url('img/BG-image2.jpg');
+  background-size: cover;
+}
+
 form, .movie-card {
   padding: 20px;
   width: 300px;
   border: 3px solid black;
   border-radius: 15px;
+  background-image: url('img/image-test.jpg');
+  margin-bottom: 10px;
+  color: white;
 }
 
 .current-rating {
@@ -33,4 +41,16 @@ form, .movie-card {
 .card-genre {
   float: right;
   margin: 0;
+}
+
+.Title {
+  margin-top: 0px;
+  text-align: center;
+}
+.Title-card{
+  color: white;
+  text-align: center;
+  font-size: 30px;
+  padding: 0px;
+  margin: 0px;
 }
