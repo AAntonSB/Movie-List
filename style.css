@@ -30,3 +30,8 @@ form, .movie-card {
   float: right;
   margin: 0;
 }
+
+.correctlyFormatedTitle{
+  color: red;
+  margin-top: 0px;
+}
