@@ -16,12 +16,20 @@ export default {
   `,
   data() {
     return {
-      movies: []
+      movies: [],
     }
   },
   methods: {
     onNewMovie(movie) {
       this.movies.push(movie)
+    },
+  },
+  created() {
+    this.movies = JSON.parse( localStorage.getItem( 'movie-list' ) )
+  },
+  watch: {
+    movies(){
+    localStorage.setItem('movie-list', JSON.stringify(this.movies))
     }
   }
 }

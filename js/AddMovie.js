@@ -49,14 +49,14 @@ export default {
       evt.preventDefault()
 
       let movie = new Movie(
-        this.title, 
+        this.title,
         this.rating,
         this.genre,
-        this.desc, 
+        this.desc,
         this.image
-        );
+      );
 
-        console.log(this.image)
+      console.log(movie);
 
       this.$emit('newMovie', movie)
 
