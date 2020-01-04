@@ -5,7 +5,7 @@ export default {
       <h3 class="card-title" >{{ movie.title }}</h3>
       <h3 class="card-rating" >{{ movie.rating }}/5</h3>
       <br>
-      <img class="card-image" :src="'{{ movie.image }}'" />
+      <img class="card-image" :src=movie.image />
       <br>
       <h3 class="card-genre" >{{ movie.genre }}</h3>
       <p>{{ movie.desc }}</p>

@@ -11,9 +11,11 @@ export default {
         1
         <input id="rating" type="range" v-model="rating" min="1" max="5">
         5
+        <br>
         <span class="current-rating">{{rating}}</span>
-
-        <input type="file" @change="onFileChange">
+        <br>
+        <label for="image">Image</label>
+        <input id="image" v-model="image">
         <br>
         <label for="genre">Genre</label>
         <select id="genre" v-model="genre">
@@ -43,21 +45,6 @@ export default {
     }
   },
   methods: {
-    onFileChange(e) {
-      var files = e.target.files || e.dataTransfer.files;
-      if (!files.length)
-        return;
-      this.createImage(files[0]);
-    },
-    createImage(file) {
-      var image = new Image();
-      var reader = new FileReader();
-      var vm = this;
-      console.log(image)
-      reader.onload = (e) => {
-        vm.image = e.target.result;
-      };
-    },
     addMovie(evt) {
       evt.preventDefault()
 
@@ -80,6 +67,7 @@ export default {
       this.rating = 3
       this.genre = 'Drama'
       this.desc = ''
+      this.image = ''
     }
   }
 }
