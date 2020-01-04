@@ -9,7 +9,7 @@ export default {
   template: `
     <div id="app">
       <h1>Add Movie</h1>
-      <AddMovie @newMovie="onNewMovie" @sortMovieByName="onSortMovieByName"></AddMovie>
+      <AddMovie @newMovie="onNewMovie" @sortMovieByName="onSortMovieByName" @sortMovieByRating="onSortMovieByRating"></AddMovie>
       <br>
       <MovieList :movies="movies" />
     </div>
@@ -24,14 +24,10 @@ export default {
       this.movies.push(movie)
     },
     onSortMovieByName() {
-      this.movies.sort(function (a, b) {
-        var titleA = a.title.toLowerCase(), titleB = b.title.toLowerCase()
-        if (titleA < titleB)
-          return -1
-        if (titleA > titleB)
-          return 1
-        return 0
-      })
+      this.movies.sort((a, b) => a.title.localeCompare(b.title))
+    },
+    onSortMovieByRating() {
+      this.movies.sort((a, b) => b.rating - a.rating);
     }
   }
 }

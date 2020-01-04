@@ -25,7 +25,9 @@ export default {
         
         <button @click.prevent="clearForm">Clear</button>
         <button @click.prevent="addMovie">Add</button>
+        <br>
         <button @click.prevent="sortMovieByName">Sort by name</button>
+        <button @click.prevent="sortMovieByRating">Sort by Rating</button>
       </form>
     </div>
     `,
@@ -62,6 +64,9 @@ export default {
     },
     sortMovieByName() {
       this.$emit('sortMovieByName')
+    },
+    sortMovieByRating() {
+      this.$emit('sortMovieByRating')
     }
   }
 }
