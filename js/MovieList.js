@@ -1,8 +1,10 @@
 import MovieCard from './MovieCard.js'
+import AddMovie from './AddMovie.js'
 
 export default {
   components: {
-    MovieCard
+    MovieCard,
+    AddMovie
   },
   props: ['movies'],
   template: `
@@ -12,6 +14,7 @@ export default {
         :key="movie.title + i" 
         :movie="movie" 
         @removeMovie="onRemoveMovie"
+        @sortMovieByName="onSortMovieList"
         />
     </div>
   `,
@@ -19,6 +22,17 @@ export default {
     onRemoveMovie(movie) {
       let movieIndex = this.movies.indexOf(movie)
       this.movies.splice(movieIndex, 1)
+    },
+    onSortMovieList() {
+      console.log('tja')
+      this.movies.sort(function (a, b) {
+        var titleA = a.title.toLowerCase(), titleB = b.title.toLowerCase()
+        if (titleA < titleB)
+          return -1
+        if (titleA > titleB)
+          return 1
+        return 0
+      })
     }
   }
 }

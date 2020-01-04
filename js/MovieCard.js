@@ -12,6 +12,9 @@ export default {
   methods: {
     removeMovie() {
       this.$emit('removeMovie', this.movie)
+    },
+    onSortMovieByName(){
+      console.log("It's working!")
     }
   }
 }

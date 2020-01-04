@@ -25,6 +25,7 @@ export default {
         
         <button @click.prevent="clearForm">Clear</button>
         <button @click.prevent="addMovie">Add</button>
+        <button @click.prevent="sortMovieByName">Sort by name</button>
       </form>
     </div>
     `,
@@ -58,6 +59,9 @@ export default {
       this.rating = 3
       this.genre = 'Drama'
       this.desc = ''
+    },
+    sortMovieByName() {
+      this.$emit('sortMovieByName')
     }
   }
 }
