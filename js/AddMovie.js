@@ -33,7 +33,9 @@ export default {
       title: '',
       rating: 3,
       genre: 'Drama',
-      desc: ''
+      desc: '',
+      movieList: [],
+      i: 0
     }
   },
   methods: {
@@ -47,7 +49,9 @@ export default {
         this.desc 
         );
 
-      console.log(movie);
+      this.movieList.push(movie)
+      console.log(this.movieList[this.i].title)
+      this.i +=1;
 
       this.$emit('newMovie', movie)
 
@@ -58,6 +62,10 @@ export default {
       this.rating = 3
       this.genre = 'Drama'
       this.desc = ''
-    }
+    },
+  },
+
+  watch: {
+    
   }
 }
