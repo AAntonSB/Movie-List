@@ -11,8 +11,12 @@ export default {
         1
         <input id="rating" type="range" v-model="rating" min="1" max="5">
         5
+        <br>
         <span class="current-rating">{{rating}}</span>
-        
+        <br>
+        <label for="image">Image</label>
+        <input id="image" v-model="image">
+        <br>
         <label for="genre">Genre</label>
         <select id="genre" v-model="genre">
           <option value="Drama">Drama</option>
@@ -20,11 +24,16 @@ export default {
           <option value="Comedy">Comedy</option>
         </select>
         <br>
+        <br>
         <label for="description">Description</label>
         <textarea id="description" v-model="desc"></textarea>
+        <br>
         
         <button @click.prevent="clearForm">Clear</button>
         <button @click.prevent="addMovie">Add</button>
+        <br>
+        <button @click.prevent="sortMovieByName">Sort by name</button>
+        <button @click.prevent="sortMovieByRating">Sort by Rating</button>
       </form>
     </div>
     `,
@@ -33,8 +42,9 @@ export default {
       title: '',
       rating: 3,
       genre: 'Drama',
-      desc: '',
       correctlyFormatedTitle: false
+      desc: '',
+      image: null
     }
   },
   methods: {
@@ -42,11 +52,12 @@ export default {
       evt.preventDefault()
 
       let movie = new Movie(
-        this.title, 
+        this.title,
         this.rating,
         this.genre,
-        this.desc 
-        );
+        this.desc,
+        this.image
+      );
         if (movie.title === ""){
           return this.correctlyFormatedTitle = true;
         }
@@ -63,6 +74,13 @@ export default {
       this.rating = 3
       this.genre = 'Drama'
       this.desc = ''
+      this.image = ''
+    },
+    sortMovieByName() {
+      this.$emit('sortMovieByName')
+    },
+    sortMovieByRating() {
+      this.$emit('sortMovieByRating')
     }
   }
 }
