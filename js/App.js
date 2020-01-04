@@ -8,19 +8,34 @@ export default {
   },
   template: `
     <div id="app">
-      <AddMovie @newMovie="onNewMovie"></AddMovie>
+      <h1>Add Movie</h1>
+      <AddMovie @newMovie="onNewMovie" @sortMovieByName="onSortMovieByName" @sortMovieByRating="onSortMovieByRating"></AddMovie>
       <br>
       <MovieList :movies="movies" />
     </div>
   `,
   data() {
     return {
-      movies: []
+      movies: [],
     }
   },
   methods: {
     onNewMovie(movie) {
       this.movies.push(movie)
+    },
+    onSortMovieByName() {
+      this.movies.sort((a, b) => a.title.localeCompare(b.title))
+    },
+    onSortMovieByRating() {
+      this.movies.sort((a, b) => b.rating - a.rating);
     }
+  },
+  created() {
+    this.movies = JSON.parse( localStorage.getItem( 'movie-list' ) )
+  },
+  watch: {
+    movies(){
+    localStorage.setItem('movie-list', JSON.stringify(this.movies))
+    },
   }
 }

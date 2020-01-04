@@ -22,7 +22,7 @@ form, .movie-card {
 }
 
 .current-rating {
-  margin-left: 20px;
+  margin-left: 120px;
 }
 
 .movie-card {
@@ -36,6 +36,13 @@ form, .movie-card {
 
 .card-rating {
   float: right;
+}
+
+.card-image {
+  width: 30%;
+  margin: auto;
+  display: block;
+  margin-bottom: 10px;
 }
 
 .card-genre {
@@ -53,4 +60,8 @@ form, .movie-card {
   font-size: 30px;
   padding: 0px;
   margin: 0px;
+}
+.correctlyFormatedTitle{
+  color: red;
+  margin-top: 0px;
 }
