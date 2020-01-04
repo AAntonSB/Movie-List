@@ -42,7 +42,7 @@ export default {
       title: '',
       rating: 3,
       genre: 'Drama',
-      correctlyFormatedTitle: false
+      correctlyFormatedTitle: false,
       desc: '',
       image: null
     }
