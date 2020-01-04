@@ -48,8 +48,6 @@ export default {
         this.desc 
         );
 
-      console.log(movie);
-
       this.$emit('newMovie', movie)
 
       this.clearForm()
