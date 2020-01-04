@@ -6,7 +6,7 @@ export default {
       <form>
         <label for="title">Title</label>
         <input id="title" v-model="title" type="text">
-        <br>
+        <p v-if="correctlyFormatedTitle" class="correctlyFormatedTitle">Need to input a title</p>
         <label for="rating">Rating</label>
         1
         <input id="rating" type="range" v-model="rating" min="1" max="5">
@@ -42,6 +42,7 @@ export default {
       title: '',
       rating: 3,
       genre: 'Drama',
+      correctlyFormatedTitle: false,
       desc: '',
       image: null
     }
@@ -57,6 +58,10 @@ export default {
         this.desc,
         this.image
       );
+        if (movie.title === ""){
+          return this.correctlyFormatedTitle = true;
+        }
+        this.correctlyFormatedTitle = false;
 
       console.log(movie);
 
