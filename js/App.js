@@ -16,7 +16,7 @@ export default {
   `,
   data() {
     return {
-      movies: []
+      movies: [],
     }
   },
   methods: {
@@ -29,5 +29,13 @@ export default {
     onSortMovieByRating() {
       this.movies.sort((a, b) => b.rating - a.rating);
     }
+  },
+  created() {
+    this.movies = JSON.parse( localStorage.getItem( 'movie-list' ) )
+  },
+  watch: {
+    movies(){
+    localStorage.setItem('movie-list', JSON.stringify(this.movies))
+    },
   }
 }
