@@ -4,6 +4,7 @@ export default {
   template: `
     <div>
       <form>
+        <h1 class="Title">Add Movie</h1>
         <label for="title">Title</label>
         <input id="title" v-model="title" type="text">
         <p v-if="correctlyFormatedTitle" class="correctlyFormatedTitle">Need to input a title</p>
@@ -62,8 +63,6 @@ export default {
           return this.correctlyFormatedTitle = true;
         }
         this.correctlyFormatedTitle = false;
-
-      console.log(movie);
 
       this.$emit('newMovie', movie)
 
